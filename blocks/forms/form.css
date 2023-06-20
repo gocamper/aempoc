@@ -240,4 +240,7 @@ main form .form-fieldset-wrapper > .field-wrapper{
     main form .form-checkbox-wrapper {
         grid-column: 1/3;
     }
+    wrap {
+	border:1px solid;
+    }
 }
