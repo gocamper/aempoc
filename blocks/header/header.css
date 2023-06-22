@@ -55,6 +55,13 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  text-decoration: none;
+}
+header nav a:any-link:hover {
+  font-weight: bold;
+}
+.nav-sections li a {
+  text-transform: capitalize;
 }
 
 /* hamburger */
