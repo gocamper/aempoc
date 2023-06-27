@@ -19,6 +19,26 @@
   display: block;
 }
 
+.columns-container h1 {
+    font-size: var(--heading-font-size-xl);
+    line-height: var(--line-height-xl);
+    color: var(--text-color);
+    margin: 0 0px 20px;
+    font-family: 'Klavika Medium';
+	text-align: center;
+}
+
+.columns-container .default-content-wrapper > p {
+	margin: 0 55px 13px;
+	text-align: center;
+}
+
+p.button-container {
+    width: 45%;
+	margin: 20px 20px !important;
+    display: inline-block;
+}
+
 @media (min-width: 900px) {
   .columns > div {
     align-items: center;

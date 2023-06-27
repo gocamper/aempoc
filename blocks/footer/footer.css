@@ -1,7 +1,7 @@
 footer {
   padding: 2rem;
   background-color: var(--overlay-background-color);
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xxs);
 }
 
 footer .footer {
@@ -10,5 +10,14 @@ footer .footer {
 }
 
 footer .footer p {
-  margin: 0;
+  line-height: 19px;
+}
+
+footer a:any-link {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+.footer-gradient {
+    height: 8px;
+    background-image: linear-gradient(to right, #e90649 0%, #740324 100%);
 }
