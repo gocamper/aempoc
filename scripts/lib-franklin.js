@@ -667,3 +667,14 @@ function init() {
 }
 
 init();
+
+/**
+ * Setup block utils.
+ * loads a block named 'popup' into footer
+ */
+export async function loadPopup (popup) {
+	const popupBlock = buildBlock('popup', '');
+	popup.append(popupBlock);
+	decorateBlock(popupBlock);
+	return loadBlock(popupBlock);
+}

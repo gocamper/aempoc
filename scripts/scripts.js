@@ -11,6 +11,7 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+	loadpopup,
 } from './lib-franklin.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -110,3 +111,9 @@ async function loadPage() {
 }
 
 loadPage();
+
+//add DOM markup for popup
+const popupDiv = document.createElement('div');
+document.body.appendChild(popupDiv);
+popupDiv.id = 'popup-wrapper';
+loadpopup(doc.querySelector('#popup-wrapper'));

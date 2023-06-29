@@ -1,0 +1,187 @@
+/*.popup {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: fixed;
+    top: 210px;
+    left: -4px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.popup .parent2 {
+    display: none;
+}
+
+.popup .parent2 img {
+    width: 250px;
+    margin-left: 0;
+}
+
+
+.popup .parent2 h3 {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.popup .parent2 h2 {
+    font-size: 19px;
+    float: right;
+    margin-right: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+
+.popup .parent2 a {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 15px;
+    min-width: 115px;
+    color: #fff;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: left;
+    text-decoration: none;
+    background: #e90649;
+    position: relative;
+    overflow: hidden;
+    padding: 14px 20px;
+    font-family: var(--body-font-family);
+}
+
+.popd {
+    width: 424px;
+    display: block !important;
+    list-style: none;
+    padding: 4px;
+    background-color: #3d4242;
+    color: #fff;
+    height: 300px;
+    position: fixed;
+    top: 139px;
+    font-size: 12px;
+    cursor: default;
+}
+
+.popd1 {
+    display: none;
+}*/
+
+body > #popup-wrapper {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: rgb(0 0 0 / 90%);
+  display: none;
+  height: 0;
+  overflow: hidden;
+}
+body.modal-open > #popup-wrapper {
+  display: block;
+  height: 100%;
+  overflow: inherit;
+}
+#popup-wrapper .modal-wrapper {
+  background: #fff;
+  color: black;
+  position: relative;
+  z-index: 100;
+  padding: 64px;
+  border-radius: 25px;
+  width: calc(100% - 40px);
+  margin: auto;
+  max-width: 680px;
+  margin-top: calc(10vh);
+  box-sizing: border-box;
+  text-align: center;
+}
+#popup-wrapper .modal-wrapper .header {
+  margin: 0;
+  padding: 20px 0;
+  font-size: 30px;
+  font-weight: 900;
+}
+#popup-wrapper .modal-wrapper .description {
+  margin: 10px 0 40px;
+  font-size: 21px;
+  font-weight: 100;
+}
+#popup-wrapper .modal-wrapper .buttons a {
+  display: block;
+  margin: 10px auto;
+  width: fit-content;
+  padding: 10px 39px;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.2s, color 0.2s;
+  font-size: 21px;
+  font-weight: 900;
+}
+#popup-wrapper .modal-wrapper .buttons a.primary {
+  background-color: #777;
+  color: white;
+}
+#popup-wrapper .modal-wrapper .buttons a.primary:hover {
+  background-color: #333;
+}
+#popup-wrapper .modal-wrapper .buttons a.bare {
+  color: #777;
+}
+#popup-wrapper .modal-wrapper .buttons a.bare:hover {
+  color: #333;
+}
+#popup-wrapper .modal-wrapper .close-btn {
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+#popup-wrapper .modal-wrapper .close-btn::before,
+#popup-wrapper .modal-wrapper .close-btn::after {
+  content: '';
+  width: 30px;
+  height: 3px;
+  margin-top: 10px;
+  background-color: #777;
+  display: block;
+  transform-origin: center;
+  position: absolute;
+}
+#popup-wrapper .modal-wrapper .close-btn::before {
+  transform: rotate(0.125turn);
+}
+#popup-wrapper .modal-wrapper .close-btn::after {
+  transform: rotate(-0.125turn);
+}
+#popup-wrapper .modal-wrapper .close-btn:before,
+#popup-wrapper .modal-wrapper .close-btn:after {
+  background-color: #333;
+}
+@media (max-width: 767px) {
+  #popup-wrapper .modal-wrapper {
+    padding: 40px 20px 30px;
+  }
+  #popup-wrapper .modal-wrapper .header {
+    padding-bottom: 10px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+  #popup-wrapper .modal-wrapper .description {
+    margin: 10px 0 30px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+  #popup-wrapper .modal-wrapper .close-btn::before,
+  #popup-wrapper .modal-wrapper .close-btn::after {
+    width: 20px;
+  }
+}
+body.disable-scroll {
+  overflow: hidden;
+}

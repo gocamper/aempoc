@@ -22,4 +22,6 @@ export default async function decorate(block) {
     decorateIcons(footer);
     block.append(footer);
   }
+	
 }
+
