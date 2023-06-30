@@ -11,7 +11,8 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
-	loadpopup,
+	loadPopup,
+	getMetadata,
 } from './lib-franklin.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -38,6 +39,7 @@ function buildHeroBlock(main) {
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
+		buildISI(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -49,13 +51,16 @@ function buildAutoBlocks(main) {
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
-export function decorateMain(main) {
+export function decorateMain(main, isFragment = false) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+	if (!isFragment) {
+    buildAutoBlocks(main);
+  }
 }
 
 /**
@@ -87,6 +92,12 @@ async function loadLazy(doc) {
 
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
+// add DOM markup for popup
+const popupDiv = document.createElement('div');
+document.body.appendChild(popupDiv);
+popupDiv.id = 'popup-wrapper';
+loadPopup(doc.querySelector('#popup-wrapper'));
+
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   sampleRUM('lazy');
@@ -112,8 +123,22 @@ async function loadPage() {
 
 loadPage();
 
-//add DOM markup for popup
+/*
+// add DOM markup for popup
 const popupDiv = document.createElement('div');
 document.body.appendChild(popupDiv);
 popupDiv.id = 'popup-wrapper';
-loadpopup(doc.querySelector('#popup-wrapper'));
+loadPopup(doc.querySelector('#popup-wrapper'));
+*/
+
+/**
+ * Builds the isi block
+ */
+export function buildISI(main) {
+  if (getMetadata('isi') !== 'off') {
+    const isi = buildBlock('isi', [[`<a href="/isi">${window.location.origin}/isi</a>`]]);
+    const newSection = document.createElement('div');
+    newSection.append(isi);
+    main.append(newSection);
+  }
+}

@@ -672,9 +672,24 @@ init();
  * Setup block utils.
  * loads a block named 'popup' into footer
  */
-export async function loadPopup (popup) {
-	const popupBlock = buildBlock('popup', '');
-	popup.append(popupBlock);
-	decorateBlock(popupBlock);
-	return loadBlock(popupBlock);
+export async function loadPopup(popup) {
+  const popupBlock = buildBlock('popup', '');
+  popup.append(popupBlock);
+  decorateBlock(popupBlock);
+  return loadBlock(popupBlock);
 }
+
+// ISI block
+/*const svgSprite;
+const icons;
+
+svgSprite.querySelectorAll('[fill]').forEach((f) => f.removeAttribute('fill'));
+  icons.forEach((span) => {
+    const iconName = Array.from(span.classList).find((c) => c.startsWith('icon-')).split('-').slice(1)
+      .join('-');
+    const parent = span.firstElementChild?.tagName === 'A' ? span.firstElementChild : span;
+    // Styled icons need to be inlined as-is, while unstyled ones can leverage the sprite
+    if (ICONS_CACHE[iconName] && ICONS_CACHE[iconName].styled) {
+      parent.innerHTML = ICONS_CACHE[iconName].html;
+    } else {}
+	});*/
