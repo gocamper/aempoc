@@ -11,11 +11,11 @@ async function createFakeFetch() {
   const popupHtml = await readFile({ path: './external-link-popup.plain.html' });
   const responses = [
     {
-      url: '/global/popups/external-link-popup.plain.html',
+      url: '/popups/external-link-popup.plain.html',
       response: popupHtml,
     },
     {
-      url: 'global/popups/external-link-whitelist.json',
+      url: '/popups/external-link-whitelist.json',
       response: whiteListJson,
     },
   ];

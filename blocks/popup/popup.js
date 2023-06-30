@@ -76,7 +76,7 @@ const addEventModalListeners = () => {
  */
 const loadModalMarkup = async (block) => {
   block.innerHTML = '';
-  const externalLinkPopup = '/global/popups/external-link-popup';
+  const externalLinkPopup = '/blocks/popup/external-link-popup';
   const resp = await fetch(`${externalLinkPopup}.plain.html`);
   if (!resp.ok) {
     console.error('Failed to load external-link-popup.plain.html');
@@ -129,7 +129,7 @@ const openPopupModal = (event) => {
  */
 export default async function decorate(block) {
   block.innerHTML = '';
-  const respWhite = await fetch('global/popups/external-link-whitelist.json');
+  const respWhite = await fetch('blocks/popup/external-link-whitelist.json');
   if (!respWhite.ok) {
     console.error('Failed to fetch external-link-whitelist.json');
     return;
